@@ -30,3 +30,14 @@ services:
     volumes:
       - '/mnt/disk-001/volumes/grafana/var/lib/grafana:/var/lib/grafana'
 
+  mqtt:
+    container_name: mosquitto
+    image: eclipse-mosquitto:1.6
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./volumes/mosquitto/config:/mqtt/config
+      - ./volumes/mosquitto/log:/mqtt/log
+      - ./volumes/mosquitto/data/:/mqtt/data
+
